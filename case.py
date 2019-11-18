@@ -28,7 +28,9 @@ class Case:
         output.append(str(self.has_child))
         output.append(str(self.plaintiff_age))
         output.append(str(self.defendant_age))
+        output.append(str(self.age_dist))
         output.append(str(self.decision))
+
 
         output = ','.join(output)
         output += '\n'
