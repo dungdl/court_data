@@ -23,5 +23,13 @@ class Case:
             self.has_child = 1
 
     def toString(self):
-        output = str("%s,%s,%s,%s,%s", self.legal_rela, self.has_child, self.plaintiff_age, self.defendant_age, self.decision)
+        output = []
+        output.append(str(self.legal_rela))
+        output.append(str(self.has_child))
+        output.append(str(self.plaintiff_age))
+        output.append(str(self.defendant_age))
+        output.append(str(self.decision))
+
+        output = ','.join(output)
+        output += '\n'
         return output
