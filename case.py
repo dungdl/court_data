@@ -1,7 +1,14 @@
 class Case:
     """
-    class to modelize a case in a court
-    including: id, legal_rela, age_dist, has_child, husb_age, wife_age, decision
+    represent a case in a court
+    including: 
+     id,
+     legal_rela, 
+     age_dist, 
+     has_child, 
+     husb_age, 
+     wife_age, 
+     decision
     """
 
     def __init__(self, id, legal_rela, plaintiff_age, defendant_age, decision):
