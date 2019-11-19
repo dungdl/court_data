@@ -14,17 +14,36 @@ class Case:
     def __init__(self, id, legal_rela, plaintiff_age, defendant_age, decision):
         self.id = id
         self.legal_rela = legal_rela
-        self.plaintiff_age = plaintiff_age
-        self.defendant_age = defendant_age
+        self.getPlaintiffAge(plaintiff_age)
+        self.getDefendantAge(defendant_age)
         self.decision = decision
-        self.getAgeDistance()
-        self.getHasChild()
+        self.getAgeDistance(plaintiff_age, defendant_age)
+        self.getHasChild(legal_rela)
 
-    def getAgeDistance(self):
-        self.age_dist = abs(self.plaintiff_age - self.defendant_age)
+    def getDefendantAge(self, defendant_age):
+        if defendant_age <= 30:
+            self.defendant_age = 1
+        else:
+            self.defendant_age = 2
 
-    def getHasChild(self):
-        if self.legal_rela == 5:
+    def getPlaintiffAge(self, plaintiff_age):
+        if plaintiff_age <= 30:
+            self.plaintiff_age = 1
+        else:
+            self.plaintiff_age = 2
+
+    def getAgeDistance(self, plaintiff_age, defendant_age):
+        age_dist = abs(plaintiff_age - defendant_age)
+
+        if age_dist <= 5:
+            self.age_dist = 1
+        elif age_dist <= 10:
+            self.age_dist = 2
+        else:
+            self.age_dist = 3
+
+    def getHasChild(self, legal_rela):
+        if legal_rela == 5:
             self.has_child = 0
         else:
             self.has_child = 1

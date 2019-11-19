@@ -29,35 +29,8 @@ for i in range(0, length):
     corr_legal = re.search(r'\d', relation)
     corr_decis = re.search(r'\d', decision)
 
-    legal_relas[i] = corr_legal.group()
+    legal_relas[i] = int(corr_legal.group())
     decisions[i] = corr_decis.group()
-
-    distances.append(abs(plaintiff_ages[i] - defendant_ages[i])) 
-
-max_plaintiff = max(plaintiff_ages)
-max_defendant = max(defendant_ages)
-max_dist = max(distances)
-
-str_plaintiff = []
-str_defendant = []
-str_dist = []
-
-for i in range(18, max_plaintiff):
-    str_plaintiff.append(str(i))
-
-for j in range(18, max_defendant):
-    str_defendant.append(str(j))
-
-for k in range(1, max_dist):
-    str_dist.append(str(k))
-
-str_plaintiff = ','.join(str_plaintiff)
-str_defendant = ','.join(str_defendant)
-str_dist = ','.join(str_dist)
-
-print(str_plaintiff)
-print(str_defendant)
-print(str_dist)
 
 # MARK:- create list objects
 
