@@ -30,7 +30,7 @@ for i in range(0, length):
     corr_decis = re.search(r'\d', decision)
 
     legal_relas[i] = int(corr_legal.group())
-    decisions[i] = corr_decis.group()
+    decisions[i] = int(corr_decis.group())
 
 # MARK:- create list objects
 

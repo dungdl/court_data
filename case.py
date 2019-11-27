@@ -48,15 +48,57 @@ class Case:
         else:
             self.has_child = 1
 
+    def rela_convert(self, legal_rela):
+        switcher = {
+            1: "MTGD",
+            2: "NN",
+            3: "NT",
+            4: "TNXH",
+            5: "BT",
+            6: "MT",
+            7: "MTKT",
+            8: "BLGD"
+        }
+        return switcher.get(legal_rela, "MTGD")
+
+    def child_convert(self, has_child):
+        switcher = {
+            0: "khong",
+            1: "co"
+
+        }
+        return switcher.get(has_child, "khong")
+
+    def age_convert(self, age):
+        switcher = {
+            1: "<=30",
+            2: ">30"
+        }
+        return switcher.get(age, "<=30")
+
+    def dist_convert(self, age_dist):
+        switcher = {
+            1: "<=5",
+            2: "5_10",
+            3: ">10"
+        }
+        return switcher.get(age_dist, "<=5")
+
+    def decision_convert(self, decision):
+        switcher = {
+            1: "Hoagiai",
+            2: "Xetxu"
+        }
+        return switcher.get(decision, "Hoagiai")
+
     def toString(self):
         output = []
-        output.append(str(self.legal_rela))
-        output.append(str(self.has_child))
-        output.append(str(self.plaintiff_age))
-        output.append(str(self.defendant_age))
-        output.append(str(self.age_dist))
-        output.append(str(self.decision))
-
+        output.append(self.rela_convert(self.legal_rela))
+        output.append(self.child_convert(self.has_child))
+        output.append(self.age_convert(self.plaintiff_age))
+        output.append(self.age_convert(self.defendant_age))
+        output.append(self.dist_convert(self.age_dist))
+        output.append(self.decision_convert(self.decision))
 
         output = ','.join(output)
         output += '\n'
